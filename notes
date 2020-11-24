@@ -1,0 +1,16 @@
+group by and having exercise my solution:
+
+SELECT students.name as student, count(assignment_submissions.*) as total_submissions
+FROM assignment_submissions
+JOIN students ON students.id = student_id
+where students.end_date is null
+GROUP BY students.name;
+
+SELECT students.name as student, count(assignment_submissions.*) as total_submissions
+FROM assignment_submissions
+JOIN students ON students.id = student_id
+where students.end_date is null
+GROUP BY students.name
+having count(assignment_submissions.*) < 100;
+
+plz note group by can make use of alias while having can not as "The HAVING clause is evaluated before the SELECT so we can't use the alias total_submissions alias that is created in the SELECT." [ W5D1 groupBy having note]
